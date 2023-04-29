@@ -3,11 +3,60 @@ html {
 }
 
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   margin: 0;
 }
 
+.textfield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 2rem;
+  width: 400px;
+  height: 120px;
+  background-color: #f1ead3;
+  border: 2px solid #fff2e7;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.keyboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  font-size: 2rem;
+  width: 700px;
+  height: 300px;
+  background-color: #e0e0e0;
+  border: 3px solid #b0ccb0;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.key-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
 .key {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-basis: 60px;
+  height: 35px;
+  background-color: rgba(144, 176, 144, 0.4392156863);
+  border: 2px solid #d8d8d8;
+  border-radius: 10px;
+  margin: 2px;
+  padding: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,13 @@
+.textfield {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 2rem;
+    width: 400px;
+    height: 120px;
+    background-color: $color-textfield-filler;
+    border: 2px solid $color-textfield-boarder;
+    border-radius: 10px;
+    margin: 10px;
+}
