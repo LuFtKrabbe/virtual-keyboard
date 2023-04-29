@@ -27,21 +27,21 @@ body {
 .keyboard {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: column;
-  font-size: 2rem;
   width: 700px;
-  height: 300px;
+  height: 280px;
   background-color: #e0e0e0;
   border: 3px solid #b0ccb0;
   border-radius: 10px;
-  margin: 10px;
+  margin: 10px 10px 10px 10px;
+  padding: 0 10px 5px 10px;
 }
 
 .key-row {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -49,14 +49,65 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  flex-basis: 60px;
-  height: 35px;
-  background-color: rgba(144, 176, 144, 0.4392156863);
-  border: 2px solid #d8d8d8;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  min-width: 40px;
+  height: 44px;
+  background-color: #bac7ba;
+  border: 2px solid #e2e2e2;
   border-radius: 10px;
-  margin: 2px;
+  box-shadow: 0 4px 6px;
+  margin: 0;
   padding: 5px;
+}
+.key:hover {
+  background-color: rgba(186, 199, 186, 0.2509803922);
+  border: 2px solid #ebebeb;
+}
+
+.push-key {
+  position: relative;
+  box-shadow: 0 2px 4px;
+  transition-duration: 0.3s;
+  top: 4px;
+  background-color: rgba(186, 199, 186, 0.2509803922);
+  border: 2px solid #ebebeb;
+}
+
+.key-backspace {
+  min-width: 100px;
+}
+
+.key-tab {
+  min-width: 65px;
+}
+
+.key-delete {
+  min-width: 50px;
+}
+
+.key-space {
+  min-width: 308px;
+}
+
+.key-capslock {
+  min-width: 80px;
+}
+
+.key-enter {
+  min-width: 110px;
+}
+
+.key-shift {
+  min-width: 90px;
+}
+
+.key-win {
+  min-width: 55px;
+}
+
+.key-ctrl {
+  min-width: 45px;
 }
 
 /*# sourceMappingURL=style.css.map */

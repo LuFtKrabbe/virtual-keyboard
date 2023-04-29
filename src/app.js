@@ -1,9 +1,9 @@
 const KEYBOARD_EN = [
-  ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
-  ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'i', 'o', 'p', '[', ']', '\\', 'del'],
-  ['caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'enter'],
-  ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'up', 'shift'],
-  ['ctrl', 'win', 'alt', 'space', 'alt', 'ctrl', 'left', 'down', 'right', 'ctrl'],
+  ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'],
+  ['Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del'],
+  ['CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter'],
+  ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '&uarr;', 'Shift'],
+  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '&larr;', '&darr;', '&rarr;', 'Ctrl'],
 ];
 
 const textfield = document.createElement('textarea');
@@ -19,6 +19,17 @@ class Keys {
     this.elem = document.createElement('div');
     this.elem.className = 'key';
     this.elem.innerHTML = value;
+
+    if (value === 'Backspace') { this.elem.classList.add('key-backspace'); }
+    if (value === 'Tab') { this.elem.classList.add('key-tab'); }
+    if (value === 'Del') { this.elem.classList.add('key-delete'); }
+    if (value === 'CapsLock') { this.elem.classList.add('key-capslock'); }
+    if (value === 'Enter') { this.elem.classList.add('key-enter'); }
+    if (value === 'Shift') { this.elem.classList.add('key-shift'); }
+    if (value === 'Ctrl') { this.elem.classList.add('key-ctrl'); }
+    if (value === 'Win') { this.elem.classList.add('key-win'); }
+    if (value === 'Alt') { this.elem.classList.add('key-alt'); }
+    if (value === 'Space') { this.elem.classList.add('key-space'); }
   }
 }
 
