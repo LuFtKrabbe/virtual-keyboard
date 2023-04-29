@@ -2,8 +2,13 @@ const KEYBOARD_EN = [
   ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'],
   ['Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del'],
   ['CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter'],
-  ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '&uarr;', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '&larr;', '&darr;', '&rarr;', 'Ctrl'],
+  ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '↑', 'Shift'],
+  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
+];
+
+const specialKeys = ['Backspace', 'Tab', 'Delete', 'CapsLock', 'Enter', 'ShiftLeft',
+  'ShiftRight', 'ControlLeft', 'AltLeft', 'Space', 'AltRight', 'ControlRight',
+  'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight',
 ];
 
 const textfield = document.createElement('textarea');
@@ -30,6 +35,10 @@ class Keys {
     if (value === 'Win') { this.elem.classList.add('key-win'); }
     if (value === 'Alt') { this.elem.classList.add('key-alt'); }
     if (value === 'Space') { this.elem.classList.add('key-space'); }
+    if (value === '↑') { this.elem.classList.add('key-arrow'); }
+    if (value === '←') { this.elem.classList.add('key-arrow'); }
+    if (value === '↓') { this.elem.classList.add('key-arrow'); }
+    if (value === '→') { this.elem.classList.add('key-arrow'); }
   }
 }
 
@@ -43,22 +52,41 @@ function createKeyboard() {
       keyRow.append(newKey.elem);
     }
   }
+  keyboard.querySelectorAll('.key-shift')[0].setAttribute('id', 'ShiftLeft');
+  keyboard.querySelectorAll('.key-shift')[1].setAttribute('id', 'ShiftRight');
+  keyboard.querySelectorAll('.key-ctrl')[0].setAttribute('id', 'ControlLeft');
+  keyboard.querySelectorAll('.key-ctrl')[1].setAttribute('id', 'ControlRight');
+  keyboard.querySelectorAll('.key-alt')[0].setAttribute('id', 'AltLeft');
+  keyboard.querySelectorAll('.key-alt')[1].setAttribute('id', 'AltRight');
+  keyboard.querySelectorAll('.key-arrow')[0].setAttribute('id', 'ArrowUp');
+  keyboard.querySelectorAll('.key-arrow')[1].setAttribute('id', 'ArrowLeft');
+  keyboard.querySelectorAll('.key-arrow')[2].setAttribute('id', 'ArrowDown');
+  keyboard.querySelectorAll('.key-arrow')[3].setAttribute('id', 'ArrowRight');
+
+  keyboard.querySelector('.key-backspace').setAttribute('id', 'Backspace');
+  keyboard.querySelector('.key-tab').setAttribute('id', 'Tab');
+  keyboard.querySelector('.key-delete').setAttribute('id', 'Delete');
+  keyboard.querySelector('.key-capslock').setAttribute('id', 'CapsLock');
+  keyboard.querySelector('.key-enter').setAttribute('id', 'Enter');
+  keyboard.querySelector('.key-space').setAttribute('id', 'Space');
 }
 
 createKeyboard();
 
+function findKeyElement(event) {
+  const keyElements = Array.from(keyboard.querySelectorAll('.key'));
+  if (specialKeys.includes(event.code)) {
+    return keyElements.find((key) => (event.code === key.id));
+  }
+  return keyElements.find((key) => (event.key === key.innerHTML));
+}
+
 window.addEventListener('keydown', (event) => {
-  const keys = keyboard.querySelectorAll('.key');
-  keys.forEach((key) => {
-    if (event.key === key.innerHTML) { key.classList.add('push-key'); }
-  });
+  findKeyElement(event).classList.add('push-key');
 });
 
 window.addEventListener('keyup', (event) => {
-  const keys = keyboard.querySelectorAll('.key');
-  keys.forEach((key) => {
-    if (event.key === key.innerHTML) { key.classList.remove('push-key'); }
-  });
+  findKeyElement(event).classList.remove('push-key');
 });
 
 keyboard.addEventListener('mousedown', (event) => {
