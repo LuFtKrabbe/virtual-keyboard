@@ -46,3 +46,35 @@ function createKeyboard() {
 }
 
 createKeyboard();
+
+window.addEventListener('keydown', (event) => {
+  const keys = keyboard.querySelectorAll('.key');
+  keys.forEach((key) => {
+    if (event.key === key.innerHTML) { key.classList.add('push-key'); }
+  });
+});
+
+window.addEventListener('keyup', (event) => {
+  const keys = keyboard.querySelectorAll('.key');
+  keys.forEach((key) => {
+    if (event.key === key.innerHTML) { key.classList.remove('push-key'); }
+  });
+});
+
+keyboard.addEventListener('mousedown', (event) => {
+  if (event.target.matches('.key')) {
+    event.target.classList.add('push-key');
+  }
+});
+
+keyboard.addEventListener('mouseup', (event) => {
+  if (event.target.matches('.key')) {
+    event.target.classList.remove('push-key');
+  }
+});
+
+keyboard.addEventListener('mouseout', (event) => {
+  if (event.target.matches('.key')) {
+    event.target.classList.remove('push-key');
+  }
+});
