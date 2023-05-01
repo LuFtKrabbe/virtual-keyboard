@@ -48,6 +48,11 @@
     border: 2px solid $color-key-boarder-light;
 }
 
+.on {
+    background-color: $color-key-filler-on;
+    border: 2px solid $color-key-boarder-light;
+  }
+
 .key-backspace {
     min-width: 100px;
 }

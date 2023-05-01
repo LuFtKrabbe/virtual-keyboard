@@ -74,6 +74,11 @@ body {
   border: 2px solid #ebebeb;
 }
 
+.on {
+  background-color: rgba(204, 139, 0, 0.8274509804);
+  border: 2px solid #ebebeb;
+}
+
 .key-backspace {
   min-width: 100px;
 }
