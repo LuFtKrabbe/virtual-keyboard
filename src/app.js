@@ -293,8 +293,8 @@ keyboard.addEventListener('mouseup', (event) => {
     changeSymbols();
   }
   if (event.target.id === 'ShiftLeft' || event.target.id === 'ShiftRight') {
-    keyboard.querySelector('#ShiftLeft').classList.add('on');
-    keyboard.querySelector('#ShiftRight').classList.add('on');
+    keyboard.querySelector('#ShiftLeft').classList.toggle('on');
+    keyboard.querySelector('#ShiftRight').classList.toggle('on');
     changeSymbols();
   }
   textfield.focus();

@@ -32,7 +32,7 @@ body {
 }
 .textfield:focus {
   outline: none;
-  border: 2px solid rgba(204, 139, 0, 0.8274509804);
+  border: 2px solid rgba(199, 145, 29, 0.8274509804);
 }
 
 .keyboard {
@@ -102,7 +102,7 @@ body {
 }
 
 .on {
-  background-color: rgba(204, 139, 0, 0.8274509804) !important;
+  background-color: rgba(199, 145, 29, 0.8274509804) !important;
   border: 2px solid #ebebeb !important;
 }
 
@@ -139,6 +139,10 @@ body {
 #ControlLeft,
 #ControlRight {
   min-width: 45px;
+}
+
+#MetaLeft {
+  background-color: #b8b2ad;
 }
 
 /*# sourceMappingURL=style.css.map */
