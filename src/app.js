@@ -156,8 +156,8 @@ changeSymbols();
 
 function pasteSymbolMouse(symbol) {
   const current = textfield.selectionStart;
-  const firstPart = textfield.value.slice(0, textfield.selectionStart);
-  const secondPart = textfield.value.slice(textfield.selectionStart);
+  const firstPart = textfield.value.slice(0, current);
+  const secondPart = textfield.value.slice(current);
   textfield.value = firstPart + symbol + secondPart;
   textfield.selectionStart = current + 1;
   textfield.selectionEnd = textfield.selectionStart;
@@ -165,36 +165,20 @@ function pasteSymbolMouse(symbol) {
 
 function pasteSymbolKeyboard(symbol) {
   const current = textfield.selectionStart;
-  const firstPart = textfield.value.slice(0, textfield.selectionStart);
-  const secondPart = textfield.value.slice(textfield.selectionStart);
+  const firstPart = textfield.value.slice(0, current);
+  const secondPart = textfield.value.slice(current);
   textfield.value = firstPart + symbol.innerHTML + secondPart;
   textfield.selectionStart = current + 1;
   textfield.selectionEnd = textfield.selectionStart;
 }
 
-function pasteSymbolTab() {
+function pasteSymbolSpec(symbolSpec) {
   const current = textfield.selectionStart;
-  const firstPart = textfield.value.slice(0, textfield.selectionStart);
-  const secondPart = textfield.value.slice(textfield.selectionStart);
-  textfield.value = `${firstPart}\t${secondPart}`;
-  textfield.selectionStart = current + 1;
-  textfield.selectionEnd = textfield.selectionStart;
-}
-
-function pasteSymbolEnter() {
-  const current = textfield.selectionStart;
-  const firstPart = textfield.value.slice(0, textfield.selectionStart);
-  const secondPart = textfield.value.slice(textfield.selectionStart);
-  textfield.value = `${firstPart}\n${secondPart}`;
-  textfield.selectionStart = current + 1;
-  textfield.selectionEnd = textfield.selectionStart;
-}
-
-function pasteSymbolSpace() {
-  const current = textfield.selectionStart;
-  const firstPart = textfield.value.slice(0, textfield.selectionStart);
-  const secondPart = textfield.value.slice(textfield.selectionStart);
-  textfield.value = `${firstPart} ${secondPart}`;
+  const firstPart = textfield.value.slice(0, current);
+  const secondPart = textfield.value.slice(current);
+  if (symbolSpec === 'Tab') { (textfield.value = `${firstPart}\t${secondPart}`); }
+  if (symbolSpec === 'Enter') { (textfield.value = `${firstPart}\n${secondPart}`); }
+  if (symbolSpec === 'Space') { (textfield.value = `${firstPart} ${secondPart}`); }
   textfield.selectionStart = current + 1;
   textfield.selectionEnd = textfield.selectionStart;
 }
@@ -202,8 +186,8 @@ function pasteSymbolSpace() {
 function removeSymbolBackspace() {
   if (textfield.selectionStart !== 0) {
     const current = textfield.selectionStart;
-    const firstPart = textfield.value.slice(0, textfield.selectionStart - 1);
-    const secondPart = textfield.value.slice(textfield.selectionStart);
+    const firstPart = textfield.value.slice(0, current - 1);
+    const secondPart = textfield.value.slice(current);
     textfield.value = firstPart + secondPart;
     textfield.selectionStart = current - 1;
     textfield.selectionEnd = textfield.selectionStart;
@@ -213,8 +197,8 @@ function removeSymbolBackspace() {
 function removeSymbolDelete() {
   if (textfield.selectionStart !== 0) {
     const current = textfield.selectionStart;
-    const firstPart = textfield.value.slice(0, textfield.selectionStart);
-    const secondPart = textfield.value.slice(textfield.selectionStart + 1);
+    const firstPart = textfield.value.slice(0, current);
+    const secondPart = textfield.value.slice(current + 1);
     textfield.value = firstPart + secondPart;
     textfield.selectionStart = current;
     textfield.selectionEnd = textfield.selectionStart;
@@ -243,10 +227,11 @@ window.addEventListener('keydown', (event) => {
 
     if (!specialKeys.includes(event.code)) { pasteSymbolKeyboard(findKeyElement(event)); }
     if (event.code === 'Backspace') { removeSymbolBackspace(); }
-    if (event.code === 'Tab') { pasteSymbolTab(); }
     if (event.code === 'Delete') { removeSymbolDelete(); }
-    if (event.code === 'Enter') { pasteSymbolEnter(); }
-    if (event.code === 'Space') { pasteSymbolSpace(); }
+
+    if (event.code === 'Tab') { pasteSymbolSpec('Tab'); }
+    if (event.code === 'Enter') { pasteSymbolSpec('Enter'); }
+    if (event.code === 'Space') { pasteSymbolSpec('Space'); }
 
     if (event.code === 'ArrowLeft' || event.code === 'ArrowRight') { pasteSymbolKeyboard(findKeyElement(event)); }
     if (event.code === 'ArrowUp' || event.code === 'ArrowDown') { pasteSymbolKeyboard(findKeyElement(event)); }
@@ -287,9 +272,11 @@ keyboard.addEventListener('mousedown', (event) => {
 
     if (event.target.id === 'Backspace') { removeSymbolBackspace(); }
     if (event.target.id === 'Delete') { removeSymbolDelete(); }
-    if (event.target.id === 'Tab') { pasteSymbolTab(); }
-    if (event.target.id === 'Enter') { pasteSymbolEnter(); }
-    if (event.target.id === 'Space') { pasteSymbolSpace(); }
+
+    if (event.target.id === 'Tab') { pasteSymbolSpec('Tab'); }
+    if (event.target.id === 'Enter') { pasteSymbolSpec('Enter'); }
+    if (event.target.id === 'Space') { pasteSymbolSpec('Space'); }
+
     if (event.target.id === 'MetaLeft') { changeLanguage(); }
 
     if (event.target.id === 'ArrowLeft' || event.target.id === 'ArrowRight') { pasteSymbolMouse(event.target.innerHTML); }
@@ -306,8 +293,8 @@ keyboard.addEventListener('mouseup', (event) => {
     changeSymbols();
   }
   if (event.target.id === 'ShiftLeft' || event.target.id === 'ShiftRight') {
-    keyboard.querySelector('#ShiftLeft').classList.remove('on');
-    keyboard.querySelector('#ShiftRight').classList.remove('on');
+    keyboard.querySelector('#ShiftLeft').classList.add('on');
+    keyboard.querySelector('#ShiftRight').classList.add('on');
     changeSymbols();
   }
   textfield.focus();
