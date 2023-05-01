@@ -12,7 +12,6 @@ export default class Keys {
     if (value === 'Enter') { this.elem.classList.add('key-enter'); }
     if (value === 'Shift') { this.elem.classList.add('key-shift'); }
     if (value === 'Ctrl') { this.elem.classList.add('key-ctrl'); }
-    if (value === 'Win') { this.elem.classList.add('key-win'); }
     if (value === 'Alt') { this.elem.classList.add('key-alt'); }
     if (value === 'Space') { this.elem.classList.add('key-space'); }
     if (value === '↑') { this.elem.classList.add('key-arrow'); }

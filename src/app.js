@@ -227,10 +227,7 @@ function findKeyElement(event) {
 }
 
 window.addEventListener('keydown', (event) => {
-  const notPrevent = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'ShiftLeft'];
-  if (!notPrevent.includes(event.code)) { event.preventDefault(); }
-
-  console.log(event);
+  event.preventDefault();
 
   if (findKeyElement(event)) {
     findKeyElement(event).classList.add('push-key');
@@ -250,6 +247,9 @@ window.addEventListener('keydown', (event) => {
     if (event.code === 'Delete') { removeSymbolDelete(); }
     if (event.code === 'Enter') { pasteSymbolEnter(); }
     if (event.code === 'Space') { pasteSymbolSpace(); }
+
+    if (event.code === 'ArrowLeft' || event.code === 'ArrowRight') { pasteSymbolKeyboard(findKeyElement(event)); }
+    if (event.code === 'ArrowUp' || event.code === 'ArrowDown') { pasteSymbolKeyboard(findKeyElement(event)); }
   }
 });
 
