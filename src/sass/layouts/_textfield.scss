@@ -4,10 +4,21 @@
     justify-content: center;
     flex-direction: row;
     font-size: 2rem;
-    width: 400px;
-    height: 120px;
+    min-width: 400px;
+    min-height: 112px;
+    width: 550px;
+    height: 112px;
+    max-width: 650px;
+    max-height: 112px;
     background-color: $color-textfield-filler;
     border: 2px solid $color-textfield-boarder;
     border-radius: 10px;
+    border-bottom-right-radius: 40px;
     margin: 10px;
+    padding: 5px 15px 5px 15px;
+    overflow-y: hidden;
+    &:focus{
+        outline: none;
+        border: 2px solid $color-key-filler-on;
+    }
 }

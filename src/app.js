@@ -37,6 +37,10 @@ const keyboard = document.createElement('div');
 keyboard.className = 'keyboard';
 document.body.append(keyboard);
 
+const keyboardInfo = document.createElement('div');
+keyboardInfo.className = 'keyboard-info';
+document.body.append(keyboardInfo);
+
 function setLocalStorage() {
   localStorage.setItem('language', currentLanguage);
 }

@@ -12,6 +12,21 @@
     padding: 0 10px 5px 10px;
 }
 
+.keyboard-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    width: 550px;
+    height: 30px;
+    background-color: $color-keyboard-info-filler;
+    border-radius: 10px;
+    margin: 15px 10px 10px 10px;
+    &::before{
+        content: "Windows operation system. Change the language: Alt + Shift or with 'RU-EN' key.";
+    }
+}
+
 .key-row {
     display: flex;
     align-items: center;
@@ -33,6 +48,7 @@
     box-shadow: 0 4px 6px;
     margin: 0;
     padding: 5px;
+    cursor: default;
     &:hover {
         background-color: $color-key-filler-light;
         border: 2px solid $color-key-boarder-light;
@@ -67,6 +83,7 @@
 
 .key-space {
     min-width: 324px;
+    content-visibility: hidden;
 }
 
 .key-capslock {

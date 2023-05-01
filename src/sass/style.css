@@ -16,12 +16,23 @@ body {
   justify-content: center;
   flex-direction: row;
   font-size: 2rem;
-  width: 400px;
-  height: 120px;
+  min-width: 400px;
+  min-height: 112px;
+  width: 550px;
+  height: 112px;
+  max-width: 650px;
+  max-height: 112px;
   background-color: #f1ead3;
-  border: 2px solid #fff2e7;
+  border: 2px solid #f1ead3;
   border-radius: 10px;
+  border-bottom-right-radius: 40px;
   margin: 10px;
+  padding: 5px 15px 5px 15px;
+  overflow-y: hidden;
+}
+.textfield:focus {
+  outline: none;
+  border: 2px solid rgba(204, 139, 0, 0.8274509804);
 }
 
 .keyboard {
@@ -36,6 +47,21 @@ body {
   border-radius: 10px;
   margin: 10px 10px 10px 10px;
   padding: 0 10px 5px 10px;
+}
+
+.keyboard-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  width: 550px;
+  height: 30px;
+  background-color: #e9e7e7;
+  border-radius: 10px;
+  margin: 15px 10px 10px 10px;
+}
+.keyboard-info::before {
+  content: "Windows operation system. Change the language: Alt + Shift or with 'RU-EN' key.";
 }
 
 .key-row {
@@ -59,6 +85,7 @@ body {
   box-shadow: 0 4px 6px;
   margin: 0;
   padding: 5px;
+  cursor: default;
 }
 .key:hover {
   background-color: rgba(186, 199, 186, 0.2509803922);
@@ -93,6 +120,7 @@ body {
 
 .key-space {
   min-width: 324px;
+  content-visibility: hidden;
 }
 
 .key-capslock {
