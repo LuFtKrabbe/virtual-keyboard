@@ -74,7 +74,7 @@ function setKeyboards() {
 }
 
 function changeSymbols() {
-  const keyCapsLock = keyboard.querySelector('.key-capslock');
+  const keyCapsLock = keyboard.querySelector('#CapsLock');
   const keyShiftLeft = keyboard.querySelector('#ShiftLeft');
   const keyShiftRight = keyboard.querySelector('#ShiftRight');
   const keyElements = keyboard.querySelectorAll('.key');
@@ -260,13 +260,13 @@ window.addEventListener('keyup', (event) => {
   }
 
   if (event.code === 'CapsLock') {
-    keyboard.querySelector('.key-capslock').classList.toggle('on');
+    keyboard.querySelector('#CapsLock').classList.toggle('on');
     changeSymbols();
   }
 
   if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-    keyboard.querySelectorAll('.key-shift')[0].classList.remove('on');
-    keyboard.querySelectorAll('.key-shift')[1].classList.remove('on');
+    keyboard.querySelector('#ShiftLeft').classList.remove('on');
+    keyboard.querySelector('#ShiftRight').classList.remove('on');
     changeSymbols();
     changeLanguage();
   }
@@ -302,12 +302,12 @@ keyboard.addEventListener('mouseup', (event) => {
     event.target.classList.remove('push-key');
   }
   if (event.target.id === 'CapsLock') {
-    keyboard.querySelector('.key-capslock').classList.toggle('on');
+    keyboard.querySelector('#CapsLock').classList.toggle('on');
     changeSymbols();
   }
   if (event.target.id === 'ShiftLeft' || event.target.id === 'ShiftRight') {
-    keyboard.querySelectorAll('.key-shift')[0].classList.toggle('on');
-    keyboard.querySelectorAll('.key-shift')[1].classList.toggle('on');
+    keyboard.querySelector('#ShiftLeft').classList.remove('on');
+    keyboard.querySelector('#ShiftRight').classList.remove('on');
     changeSymbols();
   }
   textfield.focus();

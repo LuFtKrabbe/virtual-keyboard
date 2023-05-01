@@ -69,39 +69,37 @@
     border: 2px solid $color-key-boarder-light !important;
 }
 
-.key-backspace {
+#Backspace {
     min-width: 100px;
 }
 
-.key-tab {
+#Tab {
     min-width: 65px;
 }
 
-.key-delete {
+#Delete {
     min-width: 50px;
 }
 
-.key-space {
+#Space {
     min-width: 324px;
     content-visibility: hidden;
 }
 
-.key-capslock {
+#CapsLock {
     min-width: 80px;
 }
 
-.key-enter {
+#Enter {
     min-width: 110px;
 }
 
-.key-shift {
+#ShiftLeft,
+#ShiftRight {
     min-width: 90px;
 }
 
-.key-win {
-    min-width: 55px;
-}
-
-.key-ctrl {
+#ControlLeft,
+#ControlRight {
     min-width: 45px;
 }
