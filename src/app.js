@@ -1,73 +1,12 @@
-let KEYBOARD_STANDART = [];
-let KEYBOARD_CAPS = [];
-let KEYBOARD_SHIFT = [];
-let KEYBOARD_SHIFT_CAPS = [];
+import {
+  KEYBOARD_EN_STANDART, KEYBOARD_EN_SHIFT, KEYBOARD_EN_CAPS, KEYBOARD_EN_SHIFT_CAPS,
+} from './keyboards-lang-en.js';
 
-let currentLanguage = localStorage.getItem('language') ?? 'EN';
+import {
+  KEYBOARD_RU_STANDART, KEYBOARD_RU_SHIFT, KEYBOARD_RU_CAPS, KEYBOARD_RU_SHIFT_CAPS,
+} from './keyboards-lang-ru.js';
 
-const KEYBOARD_EN_STANDART = [
-  ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'],
-  ['Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del'],
-  ['CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter'],
-  ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
-];
-
-const KEYBOARD_EN_SHIFT = [
-  ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace'],
-  ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del'],
-  ['CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter'],
-  ['Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
-];
-
-const KEYBOARD_EN_CAPS = [
-  ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'],
-  ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\', 'Del'],
-  ['CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', 'Enter'],
-  ['Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
-];
-
-const KEYBOARD_EN_SHIFT_CAPS = [
-  ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace'],
-  ['Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}', '|', 'Del'],
-  ['CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ':', '"', 'Enter'],
-  ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '<', '>', '?', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
-];
-
-const KEYBOARD_RU_STANDART = [
-  ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'],
-  ['Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'Del'],
-  ['CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter'],
-  ['Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
-];
-
-const KEYBOARD_RU_SHIFT = [
-  ['Ё', '!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', 'Backspace'],
-  ['Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', '/', 'Del'],
-  ['CapsLock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Enter'],
-  ['Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ',', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
-];
-
-const KEYBOARD_RU_CAPS = [
-  ['Ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'],
-  ['Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', '\\', 'Del'],
-  ['CapsLock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Enter'],
-  ['Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '.', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
-];
-
-const KEYBOARD_RU_SHIFT_CAPS = [
-  ['ё', '!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', 'Backspace'],
-  ['Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '/', 'Del'],
-  ['CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter'],
-  ['Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', ',', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
-];
+import Keys from './class-keys.js';
 
 const KEYBOARD_ID = [
   ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace'],
@@ -83,6 +22,13 @@ const specialKeys = [
   'ControlRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight',
 ];
 
+let KEYBOARD_STANDART = [];
+let KEYBOARD_CAPS = [];
+let KEYBOARD_SHIFT = [];
+let KEYBOARD_SHIFT_CAPS = [];
+
+let currentLanguage = localStorage.getItem('language') ?? 'EN';
+
 const textfield = document.createElement('textarea');
 textfield.className = 'textfield';
 document.body.append(textfield);
@@ -91,28 +37,8 @@ const keyboard = document.createElement('div');
 keyboard.className = 'keyboard';
 document.body.append(keyboard);
 
-class Keys {
-  constructor(value, id) {
-    this.elem = document.createElement('div');
-    this.elem.className = 'key';
-    this.elem.innerHTML = value;
-    this.elem.setAttribute('id', `${id}`);
-
-    if (value === 'Backspace') { this.elem.classList.add('key-backspace'); }
-    if (value === 'Tab') { this.elem.classList.add('key-tab'); }
-    if (value === 'Del') { this.elem.classList.add('key-delete'); }
-    if (value === 'CapsLock') { this.elem.classList.add('key-capslock'); }
-    if (value === 'Enter') { this.elem.classList.add('key-enter'); }
-    if (value === 'Shift') { this.elem.classList.add('key-shift'); }
-    if (value === 'Ctrl') { this.elem.classList.add('key-ctrl'); }
-    if (value === 'Win') { this.elem.classList.add('key-win'); }
-    if (value === 'Alt') { this.elem.classList.add('key-alt'); }
-    if (value === 'Space') { this.elem.classList.add('key-space'); }
-    if (value === '↑') { this.elem.classList.add('key-arrow'); }
-    if (value === '←') { this.elem.classList.add('key-arrow'); }
-    if (value === '↓') { this.elem.classList.add('key-arrow'); }
-    if (value === '→') { this.elem.classList.add('key-arrow'); }
-  }
+function setLocalStorage() {
+  localStorage.setItem('language', currentLanguage);
 }
 
 function createKeyboard() {
@@ -208,12 +134,6 @@ function changeLanguage() {
     changeSymbols();
   }
 }
-
-function setLocalStorage() {
-  localStorage.setItem('language', currentLanguage);
-}
-
-window.addEventListener('beforeunload', setLocalStorage);
 
 createKeyboard();
 setKeyboards();
@@ -362,3 +282,5 @@ keyboard.addEventListener('mouseout', (event) => {
     event.target.classList.remove('push-key');
   }
 });
+
+window.addEventListener('beforeunload', setLocalStorage);
