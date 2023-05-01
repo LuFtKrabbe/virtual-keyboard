@@ -261,7 +261,8 @@ window.addEventListener('keyup', (event) => {
   }
 
   if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-    findKeyElement(event).classList.remove('on');
+    keyboard.querySelectorAll('.key-shift')[0].classList.remove('on');
+    keyboard.querySelectorAll('.key-shift')[1].classList.remove('on');
     changeSymbols();
     changeLanguage();
   }
@@ -295,6 +296,15 @@ keyboard.addEventListener('mousedown', (event) => {
 keyboard.addEventListener('mouseup', (event) => {
   if (event.target.matches('.key')) {
     event.target.classList.remove('push-key');
+  }
+  if (event.target.id === 'CapsLock') {
+    keyboard.querySelector('.key-capslock').classList.toggle('on');
+    changeSymbols();
+  }
+  if (event.target.id === 'ShiftLeft' || event.target.id === 'ShiftRight') {
+    keyboard.querySelectorAll('.key-shift')[0].classList.toggle('on');
+    keyboard.querySelectorAll('.key-shift')[1].classList.toggle('on');
+    changeSymbols();
   }
   textfield.focus();
 });

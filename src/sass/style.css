@@ -75,8 +75,8 @@ body {
 }
 
 .on {
-  background-color: rgba(204, 139, 0, 0.8274509804);
-  border: 2px solid #ebebeb;
+  background-color: rgba(204, 139, 0, 0.8274509804) !important;
+  border: 2px solid #ebebeb !important;
 }
 
 .key-backspace {
@@ -92,7 +92,7 @@ body {
 }
 
 .key-space {
-  min-width: 308px;
+  min-width: 324px;
 }
 
 .key-capslock {

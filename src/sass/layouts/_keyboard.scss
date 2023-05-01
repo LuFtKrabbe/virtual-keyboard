@@ -49,8 +49,8 @@
 }
 
 .on {
-    background-color: $color-key-filler-on;
-    border: 2px solid $color-key-boarder-light;
+    background-color: $color-key-filler-on !important;
+    border: 2px solid $color-key-boarder-light !important;
 }
 
 .key-backspace {
@@ -66,7 +66,7 @@
 }
 
 .key-space {
-    min-width: 308px;
+    min-width: 324px;
 }
 
 .key-capslock {
