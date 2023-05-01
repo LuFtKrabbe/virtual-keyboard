@@ -13,13 +13,13 @@ const KEYBOARD_ID = [
   ['Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete'],
   ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter'],
   ['ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
-  ['ControlLeft', 'Win', 'AltLeft', 'Space', 'AltRight', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'ControlRight'],
+  ['ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'ControlRight'],
 ];
 
 const specialKeys = [
-  'Backspace', 'Tab', 'Delete', 'CapsLock', 'Enter', 'ShiftLeft',
-  'ShiftRight', 'ControlLeft', 'AltLeft', 'Space', 'AltRight',
-  'ControlRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight',
+  'Backspace', 'Tab', 'Delete', 'CapsLock', 'Enter', 'ShiftLeft', 'ShiftRight',
+  'MetaLeft', 'ControlLeft', 'AltLeft', 'Space', 'AltRight', 'ControlRight',
+  'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight',
 ];
 
 let KEYBOARD_STANDART = [];
@@ -113,6 +113,17 @@ function changeLanguage() {
   const keyAltRight = keyboard.querySelector('#AltRight');
   const keyShiftLeft = keyboard.querySelector('#ShiftLeft');
   const keyShiftRight = keyboard.querySelector('#ShiftRight');
+  const keyMetaLeft = keyboard.querySelector('#MetaLeft');
+
+  if (keyMetaLeft.matches('.push-key')) {
+    if (currentLanguage === 'EN') {
+      currentLanguage = 'RU';
+    } else {
+      currentLanguage = 'EN';
+    }
+    setKeyboards();
+    changeSymbols();
+  }
 
   if (keyAltLeft.matches('.push-key') || keyAltRight.matches('.push-key')) {
     if (currentLanguage === 'EN') {
@@ -139,11 +150,20 @@ createKeyboard();
 setKeyboards();
 changeSymbols();
 
-function pasteSymbol(symbol) {
+function pasteSymbolMouse(symbol) {
   const current = textfield.selectionStart;
   const firstPart = textfield.value.slice(0, textfield.selectionStart);
   const secondPart = textfield.value.slice(textfield.selectionStart);
   textfield.value = firstPart + symbol + secondPart;
+  textfield.selectionStart = current + 1;
+  textfield.selectionEnd = textfield.selectionStart;
+}
+
+function pasteSymbolKeyboard(symbol) {
+  const current = textfield.selectionStart;
+  const firstPart = textfield.value.slice(0, textfield.selectionStart);
+  const secondPart = textfield.value.slice(textfield.selectionStart);
+  textfield.value = firstPart + symbol.innerHTML + secondPart;
   textfield.selectionStart = current + 1;
   textfield.selectionEnd = textfield.selectionStart;
 }
@@ -220,7 +240,7 @@ window.addEventListener('keydown', (event) => {
       findKeyElement(event).classList.add('on');
     }
 
-    if (!specialKeys.includes(event.code)) { pasteSymbol(event.key); }
+    if (!specialKeys.includes(event.code)) { pasteSymbolKeyboard(findKeyElement(event)); }
     if (event.code === 'Backspace') { removeSymbolBackspace(); }
     if (event.code === 'Tab') { pasteSymbolTab(); }
     if (event.code === 'Delete') { removeSymbolDelete(); }
@@ -258,15 +278,17 @@ keyboard.addEventListener('mousedown', (event) => {
   if (event.target.matches('.key')) {
     event.target.classList.add('push-key');
 
-    if (!specialKeys.includes(event.target.id)) { pasteSymbol(event.target.innerHTML); }
+    if (!specialKeys.includes(event.target.id)) { pasteSymbolMouse(event.target.innerHTML); }
 
     if (event.target.id === 'Backspace') { removeSymbolBackspace(); }
     if (event.target.id === 'Delete') { removeSymbolDelete(); }
     if (event.target.id === 'Tab') { pasteSymbolTab(); }
     if (event.target.id === 'Enter') { pasteSymbolEnter(); }
     if (event.target.id === 'Space') { pasteSymbolSpace(); }
-    if (event.target.id === 'ArrowLeft' || event.target.id === 'ArrowRight') { pasteSymbol(event.target.innerHTML); }
-    if (event.target.id === 'ArrowUp' || event.target.id === 'ArrowDown') { pasteSymbol(event.target.innerHTML); }
+    if (event.target.id === 'MetaLeft') { changeLanguage(); }
+
+    if (event.target.id === 'ArrowLeft' || event.target.id === 'ArrowRight') { pasteSymbolMouse(event.target.innerHTML); }
+    if (event.target.id === 'ArrowUp' || event.target.id === 'ArrowDown') { pasteSymbolMouse(event.target.innerHTML); }
   }
 });
 

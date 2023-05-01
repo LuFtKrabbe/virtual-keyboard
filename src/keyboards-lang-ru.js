@@ -3,7 +3,7 @@ const KEYBOARD_RU_STANDART = [
   ['Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'Del'],
   ['CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter'],
   ['Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
+  ['Ctrl', 'RU', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
 ];
 
 const KEYBOARD_RU_SHIFT = [
@@ -11,7 +11,7 @@ const KEYBOARD_RU_SHIFT = [
   ['Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', '/', 'Del'],
   ['CapsLock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Enter'],
   ['Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ',', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
+  ['Ctrl', 'RU', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
 ];
 
 const KEYBOARD_RU_CAPS = [
@@ -19,7 +19,7 @@ const KEYBOARD_RU_CAPS = [
   ['Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', '\\', 'Del'],
   ['CapsLock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Enter'],
   ['Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '.', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
+  ['Ctrl', 'RU', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
 ];
 
 const KEYBOARD_RU_SHIFT_CAPS = [
@@ -27,7 +27,7 @@ const KEYBOARD_RU_SHIFT_CAPS = [
   ['Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '/', 'Del'],
   ['CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter'],
   ['Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', ',', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
+  ['Ctrl', 'RU', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
 ];
 
 export {

@@ -3,7 +3,7 @@ const KEYBOARD_EN_STANDART = [
   ['Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del'],
   ['CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter'],
   ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
+  ['Ctrl', 'EN', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
 ];
 
 const KEYBOARD_EN_SHIFT = [
@@ -11,7 +11,7 @@ const KEYBOARD_EN_SHIFT = [
   ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del'],
   ['CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter'],
   ['Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
+  ['Ctrl', 'EN', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
 ];
 
 const KEYBOARD_EN_CAPS = [
@@ -19,7 +19,7 @@ const KEYBOARD_EN_CAPS = [
   ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\', 'Del'],
   ['CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', 'Enter'],
   ['Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
+  ['Ctrl', 'EN', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
 ];
 
 const KEYBOARD_EN_SHIFT_CAPS = [
@@ -27,7 +27,7 @@ const KEYBOARD_EN_SHIFT_CAPS = [
   ['Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}', '|', 'Del'],
   ['CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ':', '"', 'Enter'],
   ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '<', '>', '?', '↑', 'Shift'],
-  ['Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
+  ['Ctrl', 'EN', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'],
 ];
 
 export {
