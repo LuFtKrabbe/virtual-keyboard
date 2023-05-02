@@ -1,0 +1,109 @@
+.keyboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 700px;
+    height: 280px;
+    background-color: $color-keyboard-filler;
+    border: 3px solid $color-keyboard-boarder;
+    border-radius: 10px;
+    margin: 10px 10px 10px 10px;
+    padding: 0 10px 5px 10px;
+}
+
+.keyboard-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    width: 550px;
+    height: 30px;
+    background-color: $color-keyboard-info-filler;
+    border-radius: 10px;
+    margin: 15px 10px 10px 10px;
+    &::before{
+        content: "Windows operation system. Change the language: Alt + Shift or with 'RU-EN' key.";
+    }
+}
+
+.key-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    min-width: 40px;
+    height: 44px;
+    background-color: $color-key-filler;
+    border: 2px solid $color-key-boarder;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px;
+    margin: 0;
+    padding: 5px;
+    cursor: default;
+    &:hover {
+        background-color: $color-key-filler-light;
+        border: 2px solid $color-key-boarder-light;
+    }
+}
+
+.push-key {
+    position: relative;
+    box-shadow: 0 2px 4px;
+    transition-duration: 0.3s;
+    top: 4px;
+    background-color: $color-key-filler-light;
+    border: 2px solid $color-key-boarder-light;
+}
+
+.on {
+    background-color: $color-key-filler-on !important;
+    border: 2px solid $color-key-boarder-light !important;
+}
+
+#Backspace {
+    min-width: 100px;
+}
+
+#Tab {
+    min-width: 65px;
+}
+
+#Delete {
+    min-width: 50px;
+}
+
+#Space {
+    min-width: 324px;
+    content-visibility: hidden;
+}
+
+#CapsLock {
+    min-width: 80px;
+}
+
+#Enter {
+    min-width: 110px;
+}
+
+#ShiftLeft,
+#ShiftRight {
+    min-width: 90px;
+}
+
+#ControlLeft,
+#ControlRight {
+    min-width: 45px;
+}
+
+#MetaLeft {
+    background-color: $color-language;
+}

@@ -1,0 +1,147 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+.textfield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 2rem;
+  min-width: 400px;
+  min-height: 112px;
+  width: 550px;
+  height: 112px;
+  max-width: 650px;
+  background-color: #f1ead3;
+  border: 2px solid #f1ead3;
+  border-radius: 10px;
+  border-bottom-right-radius: 40px;
+  margin: 10px;
+  padding: 5px 15px 5px 15px;
+  overflow-y: hidden;
+}
+.textfield:focus {
+  outline: none;
+  border: 2px solid rgba(199, 145, 29, 0.8274509804);
+}
+
+.keyboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 700px;
+  height: 280px;
+  background-color: #e0e0e0;
+  border: 3px solid #b0ccb0;
+  border-radius: 10px;
+  margin: 10px 10px 10px 10px;
+  padding: 0 10px 5px 10px;
+}
+
+.keyboard-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  width: 550px;
+  height: 30px;
+  background-color: #e9e7e7;
+  border-radius: 10px;
+  margin: 15px 10px 10px 10px;
+}
+.keyboard-info::before {
+  content: "Windows operation system. Change the language: Alt + Shift or with 'RU-EN' key.";
+}
+
+.key-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  min-width: 40px;
+  height: 44px;
+  background-color: #bac7ba;
+  border: 2px solid #e2e2e2;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px;
+  margin: 0;
+  padding: 5px;
+  cursor: default;
+}
+.key:hover {
+  background-color: rgba(186, 199, 186, 0.2509803922);
+  border: 2px solid #ebebeb;
+}
+
+.push-key {
+  position: relative;
+  box-shadow: 0 2px 4px;
+  transition-duration: 0.3s;
+  top: 4px;
+  background-color: rgba(186, 199, 186, 0.2509803922);
+  border: 2px solid #ebebeb;
+}
+
+.on {
+  background-color: rgba(199, 145, 29, 0.8274509804) !important;
+  border: 2px solid #ebebeb !important;
+}
+
+#Backspace {
+  min-width: 100px;
+}
+
+#Tab {
+  min-width: 65px;
+}
+
+#Delete {
+  min-width: 50px;
+}
+
+#Space {
+  min-width: 324px;
+  content-visibility: hidden;
+}
+
+#CapsLock {
+  min-width: 80px;
+}
+
+#Enter {
+  min-width: 110px;
+}
+
+#ShiftLeft,
+#ShiftRight {
+  min-width: 90px;
+}
+
+#ControlLeft,
+#ControlRight {
+  min-width: 45px;
+}
+
+#MetaLeft {
+  background-color: #b8b2ad;
+}
+
+/*# sourceMappingURL=style.css.map */
