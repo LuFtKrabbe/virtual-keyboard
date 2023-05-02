@@ -167,7 +167,7 @@ function pasteSymbolKeyboard(symbol) {
   const current = textfield.selectionStart;
   const firstPart = textfield.value.slice(0, current);
   const secondPart = textfield.value.slice(current);
-  textfield.value = firstPart + symbol.innerHTML + secondPart;
+  textfield.value = firstPart + symbol.innerText + secondPart;
   textfield.selectionStart = current + 1;
   textfield.selectionEnd = textfield.selectionStart;
 }
@@ -195,14 +195,12 @@ function removeSymbolBackspace() {
 }
 
 function removeSymbolDelete() {
-  if (textfield.selectionStart !== 0) {
-    const current = textfield.selectionStart;
-    const firstPart = textfield.value.slice(0, current);
-    const secondPart = textfield.value.slice(current + 1);
-    textfield.value = firstPart + secondPart;
-    textfield.selectionStart = current;
-    textfield.selectionEnd = textfield.selectionStart;
-  }
+  const current = textfield.selectionStart;
+  const firstPart = textfield.value.slice(0, current);
+  const secondPart = textfield.value.slice(current + 1);
+  textfield.value = firstPart + secondPart;
+  textfield.selectionStart = current;
+  textfield.selectionEnd = textfield.selectionStart;
 }
 
 function findKeyElement(event) {
@@ -264,11 +262,10 @@ window.addEventListener('keyup', (event) => {
 
 keyboard.addEventListener('mousedown', (event) => {
   event.preventDefault();
-
   if (event.target.matches('.key')) {
     event.target.classList.add('push-key');
 
-    if (!specialKeys.includes(event.target.id)) { pasteSymbolMouse(event.target.innerHTML); }
+    if (!specialKeys.includes(event.target.id)) { pasteSymbolMouse(event.target.innerText); }
 
     if (event.target.id === 'Backspace') { removeSymbolBackspace(); }
     if (event.target.id === 'Delete') { removeSymbolDelete(); }
